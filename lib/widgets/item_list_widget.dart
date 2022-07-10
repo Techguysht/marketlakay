@@ -7,16 +7,26 @@ class ItemListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           //maxCrossAxisExtent: 200,
-          //childAspectRatio: 1,
+          childAspectRatio: (100 / 175),
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
-          crossAxisCount: 3),
+          crossAxisCount: 4),
       itemCount: 15,
       itemBuilder: (BuildContext ctx, index) {
         return const ItemWidget();
       },
     );
+
+    /* AlignedGridView.count(
+      crossAxisCount: 4,
+      mainAxisSpacing: 4,
+      crossAxisSpacing: 4,
+      itemBuilder: (context, index) {
+        return ItemWidget();
+      },
+    );*/
   }
 }
